@@ -40,9 +40,7 @@ export interface BooksState {
   loading: boolean;
   error: string | null;
   searchQuery: string;
-  currentPage: number;
   totalItems: number;
-  itemsPerPage: number;
   hasSearched: boolean;
 }
 

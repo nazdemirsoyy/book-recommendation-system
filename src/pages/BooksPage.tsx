@@ -4,7 +4,7 @@ import { BookOutlined } from '@ant-design/icons';
 import { useAppSelector } from '../hooks/redux';
 import BookSearch from '../components/Books/BookSearch';
 import BookGrid from '../components/Books/BookGrid';
-//import BookPagination from '../components/Books/BookPagination';
+
 
 const { Title, Text } = Typography;
 
@@ -25,6 +25,7 @@ const BooksPage: React.FC = () => {
   };
 
   const renderContent = () => {
+
     if (error) {
       return (
         <Alert
@@ -83,7 +84,6 @@ const BooksPage: React.FC = () => {
           loading={loading}
           onViewDetails={handleViewDetails}
         />
-        {/* <BookPagination /> */}
       </>
     );
   };

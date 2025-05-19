@@ -12,16 +12,12 @@ const BookSearch: React.FC = () => {
   const [localQuery, setLocalQuery] = useState(searchQuery);
 
   const handleSearch = async (value: string) => {
-    if (!value.trim()) {
-      message.warning('Please enter a search term');
-      return;
-    }
-
+    
     console.log('Searching for:', value);
 
     try {
       dispatch(setSearchQuery(value));
-      await dispatch(searchBooks({ query: value, page: 1 })).unwrap();
+      await dispatch(searchBooks(value)).unwrap();
     } catch (error) {
       message.error('Failed to search books. Please try again.');
     }

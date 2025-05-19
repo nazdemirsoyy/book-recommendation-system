@@ -32,8 +32,8 @@ const AppContent: React.FC = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/books" element={<BooksPage />}/>
         <Route path="/books/:id" element={<BookDetailsPage />} />
-        <Route path="/" element={<Navigate to="/books" replace />} />
-        <Route path="*" element={<Navigate to="/books" replace />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
   );

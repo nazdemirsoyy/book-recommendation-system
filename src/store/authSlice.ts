@@ -16,7 +16,7 @@ const authSlice = createSlice({
       state.isAuthenticated = true;
       state.rememberMe = action.payload.rememberMe;
       
-      // Save to localStorage or sessionStorage based on rememberMe
+      // Save to localStorage based on rememberMe
       const storage = action.payload.rememberMe ? localStorage : sessionStorage;
       storage.setItem('user', JSON.stringify(action.payload.user));
       storage.setItem('isAuthenticated', 'true');
@@ -34,16 +34,10 @@ const authSlice = createSlice({
 
     },
     loadUserFromStorage: (state) => {
-      // Check localStorage first, then sessionStorage
+      // Check localStorage
       let storedUser = localStorage.getItem('user');
       let storedAuth = localStorage.getItem('isAuthenticated');
       let storedRememberMe = localStorage.getItem('rememberMe');
-      
-      if (!storedUser || !storedAuth) {
-        storedUser = sessionStorage.getItem('user');
-        storedAuth = sessionStorage.getItem('isAuthenticated');
-        storedRememberMe = sessionStorage.getItem('rememberMe');
-      }
       
       if (storedUser && storedAuth === 'true') {
         try {
@@ -56,9 +50,6 @@ const authSlice = createSlice({
           localStorage.removeItem('user');
           localStorage.removeItem('isAuthenticated');
           localStorage.removeItem('rememberMe');
-          sessionStorage.removeItem('user');
-          sessionStorage.removeItem('isAuthenticated');
-          sessionStorage.removeItem('rememberMe');
         }
       }
     },

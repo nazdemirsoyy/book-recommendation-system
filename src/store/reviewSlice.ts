@@ -1,17 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Review, ReviewsState } from '../types';
 
-export interface Review {
-  id: string;
-  bookId: string;
-  rating: number;
-  review: string;
-  username:string;  
-  timestamp: number;
-}
-
-interface ReviewsState {
-  reviews: Review[];
-}
 
 const initialState: ReviewsState = {
   reviews: [],

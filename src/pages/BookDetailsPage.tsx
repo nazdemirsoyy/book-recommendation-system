@@ -6,7 +6,7 @@ import { Book } from '../types';
 import { bookService } from '../backend/bookService';
 import RatingReviewSection from '../components/Books/RatingReviewSection';
 
-const { Title, Text, Paragraph } = Typography;
+const { Title, Text } = Typography;
 
 const BookDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

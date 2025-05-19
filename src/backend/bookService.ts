@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { Book } from '../types';
 
-
 // Google Books API base URL
 const API_KEY= process.env.GOOGLE_BOOKS_API_KEY;
 const GOOGLE_BOOKS_API = 'https://www.googleapis.com/books/v1';
@@ -12,8 +11,9 @@ const api = axios.create({
   });
   
   export const bookService = {
+
     // Search books using Google Books API
-    async searchBooks(query: string, startIndex: number = 0, maxResults: number = 20) {
+    async searchBooks(query: string,maxResults: number = 20) {
       try {
         //console.log('Searching for:', query, 'Start index:', startIndex);
 
@@ -23,7 +23,6 @@ const api = axios.create({
         const response = await api.get('/volumes', {
           params: {
             q: searchQuery,
-            startIndex,
             maxResults,
             printType: 'books',
             projection: 'full',
@@ -62,7 +61,6 @@ const api = axios.create({
           books,
           totalItems: response.data.totalItems || 0,
           query,
-          startIndex,
         };
         
         console.log('Final result:', result);

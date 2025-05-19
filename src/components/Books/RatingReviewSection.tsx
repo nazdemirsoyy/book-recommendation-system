@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Card, Rate, Input, Button, Space, Typography, Divider, message } from 'antd';
+import { Card, Rate, Input, Button, Space, Typography, message } from 'antd';
 import { EditOutlined, DeleteOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux';
 import { addReview, updateReview, removeReview, selectReviewByBookId } from '../../store/reviewSlice';
@@ -19,7 +19,7 @@ const RatingReviewSection: React.FC<RatingReviewSectionProps> = ({ bookId }) => 
     const existingReview = useAppSelector(state => selectReviewByBookId(state, bookId));
     
     // Get auth info from your existing auth slice
-    const { user, isAuthenticated } = useAppSelector(state => state.auth);
+    const { user } = useAppSelector(state => state.auth);
     const currentUsername = user?.username;
 
     const [rating, setRating] = useState(0);
@@ -114,7 +114,6 @@ const RatingReviewSection: React.FC<RatingReviewSectionProps> = ({ bookId }) => 
     };
   
     const isFormValid = rating > 0 && reviewText.trim().length > 0;
-    const showForm = !existingReview || isEditing;
   
     return (
     <div style={{ width: '100%' }}>

@@ -38,7 +38,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, loading }) => {
     );
   };
 
-  // column definitions
+  // Column definitions
   const columnDefs: ColDef[] = [
     {
       headerName: 'Title',
