@@ -1,4 +1,5 @@
 # Dependency folders
+.node_modules
 node_modules/
 
 # Environment variables
